@@ -11,17 +11,20 @@
 
 #include <stdio.h>
 #define NUM(a) ((a>=48)&&(a<=57))
+#include<string.h>
 
 int main()
 {
-    char s[50] = "a150b60c352";
-    char cp;
+    char s[50] = "abc150b60c352";
+    char cp[15];
     int num=0;
+    int flag=0;
     for(int i=0;s[i];i++)
     {
         if(!NUM(s[i]))
         {
-            cp = s[i];
+            cp[flag]=s[i];
+            flag++;
             continue;
         }
         else
@@ -34,11 +37,10 @@ int main()
             }while(NUM(s[i]));
             i = i-1;
                 for(int j=0;j<num;j++)
-        printf("%c",cp);
+                printf("%s",cp);
+            flag=0;
         }
         num=0;
     }
-
     return 0;
 }
-
